@@ -103,7 +103,7 @@ export default function Skills() {
           }}
         />
         
-        {/* Fixed particles - moved outside any component to ensure they're never re-rendered during scrolling */}
+        {/* Fixed particles */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
           {particleData.map((particle, i) => (
             <motion.div
