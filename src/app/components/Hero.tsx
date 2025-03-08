@@ -128,9 +128,9 @@ export default function Hero() {
               className="text-center px-4"
             >
               <h1 className="text-5xl font-extrabold">
-                Hi, I'm <span className="text-red-500">Obaida Ammar</span>
+                Hi, I&apos;m <span className="text-red-500">Obaida Ammar</span>
               </h1>
-              <p className="text-lg mt-4">AI Researcher | ML Engineer | RL Enthusiast</p>
+              <p className="text-lg mt-4">AI Researcher &#124; ML Engineer &#124; RL Enthusiast</p>
               <div className="mt-6 flex flex-wrap gap-4 justify-center">
                 <Link
                   to="projects" smooth={true} duration={800} 

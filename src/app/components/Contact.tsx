@@ -185,7 +185,7 @@ export default function Contact() {
           animate={{ opacity: 1 }}
           transition={{ duration: 0.7, delay: 0.2 }}
         >
-          Let's connect and discuss how we can work together on your next project.
+          Let&apos;s connect and discuss how we can work together on your next project.
         </motion.p>
         
         <div className="grid md:grid-cols-5 gap-8 items-start">
@@ -364,7 +364,7 @@ export default function Contact() {
               transition={{ duration: 0.3 }}
             >
               <h3 className="text-xl font-bold mb-2 bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-400">Looking for a Developer?</h3>
-              <p className="text-gray-300">I'm currently available for freelance work and new opportunities.</p>
+              <p className="text-gray-300">I&apos;m currently available for freelance work and new opportunities.</p>
             </motion.div>
           </motion.div>
         </div>
@@ -377,7 +377,7 @@ export default function Contact() {
         animate={{ opacity: 1 }}
         transition={{ duration: 0.6, delay: 0.8 }}
       >
-        <p>© {new Date().getFullYear()} Obaida Ammar. All rights reserved.</p>
+        <p>&copy; {new Date().getFullYear()} Obaida Ammar. All rights reserved.</p>
       </motion.div>
     </section>
   );

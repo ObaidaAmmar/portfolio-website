@@ -101,10 +101,10 @@ export default function About() {
               
               <div className="space-y-4">
                 <p className="text-gray-300 text-lg">
-                  Hi, I'm <span className="text-blue-400 font-semibold">Obaida Ammar</span>, a passionate AI/ML researcher and developer with a Master's in Information Systems & Data Intelligence from the Lebanese University. My thesis focused on <span className="text-green-400 font-semibold">Explainable AI, Fairness, and Reinforcement Learning</span>, and I love working on cutting-edge AI solutions. 🚀
+                  Hi, I&apos;m <span className="text-blue-400 font-semibold">Obaida Ammar</span>, a passionate AI/ML researcher and developer with a Master&apos;s in Information Systems & Data Intelligence from the Lebanese University. My thesis focused on <span className="text-green-400 font-semibold">Explainable AI, Fairness, and Reinforcement Learning</span>, and I love working on cutting-edge AI solutions. 🚀
                 </p>
                 <p className="text-gray-300 text-lg">
-                  I also have experience in <span className="text-purple-400 font-semibold">data science, AI/ML engineering, and web development</span>, and I've collaborated on projects like an <span className="text-purple-400 font-semibold">academic registration system</span>, an <span className="text-purple-400 font-semibold">RL framework for fair counterfactual explanations</span>, and more.
+                  I also have experience in <span className="text-purple-400 font-semibold">data science, AI/ML engineering, and web development</span>, and I&apos;ve collaborated on projects like an <span className="text-purple-400 font-semibold">academic registration system</span>, an <span className="text-purple-400 font-semibold">RL framework for fair counterfactual explanations</span>, and more.
                 </p>
                 
                 {/* Skills pills */}
@@ -125,10 +125,10 @@ export default function About() {
           <div className="text-center md:text-left">
             <h2 className="text-4xl font-bold mb-3">About Me</h2>
             <p className="text-gray-300 text-lg">
-              Hi, I'm <span className="text-blue-400 font-semibold">Obaida Ammar</span>, a passionate AI/ML researcher and developer with a Master's in Information Systems & Data Intelligence from the Lebanese University. My thesis focused on <span className="text-green-400 font-semibold">Explainable AI, Fairness, and Reinforcement Learning</span>, and I love working on cutting-edge AI solutions. 🚀
+              Hi, I'm <span className="text-blue-400 font-semibold">Obaida Ammar</span>, a passionate AI/ML researcher and developer with a Master&apos;s in Information Systems & Data Intelligence from the Lebanese University. My thesis focused on <span className="text-green-400 font-semibold">Explainable AI, Fairness, and Reinforcement Learning</span>, and I love working on cutting-edge AI solutions. 🚀
             </p>
             <p className="mt-4 text-gray-300 text-lg">
-              I also have experience in <span className="text-purple-400 font-semibold">data science, AI/ML engineering, and web development</span>, and I've collaborated on projects like an <span className="text-purple-400 font-semibold">academic registration system</span>, an <span className="text-purple-400 font-semibold">RL framework for fair counterfactual explanations</span>, and more.
+              I also have experience in <span className="text-purple-400 font-semibold">data science, AI/ML engineering, and web development</span>, and I&apos;ve collaborated on projects like an <span className="text-purple-400 font-semibold">academic registration system</span>, an <span className="text-purple-400 font-semibold">RL framework for fair counterfactual explanations</span>, and more.
             </p>
           </div>
         )}
