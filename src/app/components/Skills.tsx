@@ -22,56 +22,32 @@ const skills = [
 export default function Skills() {
   const sectionRef = useRef(null);
   const [isMobile, setIsMobile] = useState(false);
-  
-  // Check if the device is mobile
+
+  // Detect if the device is mobile
   useEffect(() => {
-    const checkMobile = () => {
-      setIsMobile(window.innerWidth < 768);
-    };
-    
+    const checkMobile = () => setIsMobile(window.innerWidth < 768);
     checkMobile();
     window.addEventListener("resize", checkMobile);
     return () => window.removeEventListener("resize", checkMobile);
   }, []);
 
-  // Parallax effect setup
   const { scrollYProgress } = useScroll({
     target: sectionRef,
-    offset: ["start end", "end start"]
+    offset: ["start end", "end start"],
   });
 
-  // Create floating particles effect
-  const Particles = () => {
-    return (
-      <div className="absolute inset-0 overflow-hidden">
-        {[...Array(20)].map((_, i) => (
-          <motion.div
-            key={i}
-            className="absolute rounded-full bg-white bg-opacity-20"
-            style={{
-              width: Math.random() * 8 + 2,
-              height: Math.random() * 8 + 2,
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
-            }}
-            animate={{
-              y: [0, Math.random() * -100 - 50],
-              x: [0, Math.random() * 40 - 20],
-              opacity: [0, 0.5, 0]
-            }}
-            transition={{
-              duration: Math.random() * 5 + 10,
-              repeat: Infinity,
-              ease: "linear"
-            }}
-          />
-        ))}
-      </div>
+  // ✅ Fix: Precompute `useTransform` outside `.map()`
+  const parallaxEffects = skills.map((_, index) => {
+    const yRange = isMobile ? [-5, 5] : [-20, 20];
+    return useTransform(
+      scrollYProgress,
+      [0, 1],
+      index % 3 === 0 ? yRange : index % 3 === 1 ? [0, 0] : [-yRange[0], -yRange[1]]
     );
-  };
+  });
 
   return (
-    <section 
+    <section
       ref={sectionRef}
       className="py-20 relative overflow-hidden text-white text-center"
       style={{
@@ -79,31 +55,14 @@ export default function Skills() {
         minHeight: "100vh",
       }}
     >
-      {/* Futuristic background elements */}
+      {/* Background elements */}
       <div className="absolute inset-0 z-0">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(59,130,246,0.1),transparent_70%)]"></div>
-        <motion.div 
-          className="absolute top-0 left-0 w-full h-full opacity-30"
-          style={{
-            background: "linear-gradient(45deg, transparent 45%, rgba(59, 130, 246, 0.1) 50%, transparent 55%)",
-            backgroundSize: "200% 200%"
-          }}
-          animate={{
-            backgroundPosition: ["0% 0%", "100% 100%"]
-          }}
-          transition={{
-            duration: 15,
-            repeat: Infinity,
-            repeatType: "reverse",
-            ease: "linear"
-          }}
-        />
-        <Particles />
       </div>
 
-      {/* Content */}
-      <motion.h2 
-        className="text-4xl font-bold mb-10 relative z-10 bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500"
+      {/* Section title */}
+      <motion.h2
+        className="text-4xl font-bold mb-10 bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500"
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
@@ -111,7 +70,8 @@ export default function Skills() {
         Skills & Technologies
         <div className="w-94 h-1 bg-gradient-to-r from-blue-500 to-purple-500 mx-auto mb-10 mt-1"></div>
       </motion.h2>
-      
+
+      {/* Skills grid */}
       <motion.div
         className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-8 px-10 relative z-10 max-w-6xl mx-auto"
         initial={{ opacity: 0 }}
@@ -119,15 +79,8 @@ export default function Skills() {
         transition={{ duration: 0.8, delay: 0.2 }}
       >
         {skills.map((skill, index) => {
-          // Create different parallax speeds based on index
-          const yRange = isMobile ? [-5, 5] : [-20, 20];
-          const delay = index * 0.05;
-          const y = useTransform(
-            scrollYProgress, 
-            [0, 1], 
-            index % 3 === 0 ? yRange : index % 3 === 1 ? [0, 0] : [-yRange[0], -yRange[1]]
-          );
-          
+          const y = parallaxEffects[index]; // ✅ Now using precomputed transforms
+
           return (
             <motion.div
               key={index}
@@ -135,7 +88,7 @@ export default function Skills() {
               style={isMobile ? {} : { y }}
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.5, delay }}
+              transition={{ duration: 0.5, delay: index * 0.05 }}
             >
               <motion.div
                 className={`
@@ -145,28 +98,28 @@ export default function Skills() {
                   hover:bg-opacity-50 transition-all
                   relative overflow-hidden
                 `}
-                whileHover={{ 
+                whileHover={{
                   scale: 1.05,
-                  boxShadow: "0 0 20px rgba(59, 130, 246, 0.4)"
+                  boxShadow: "0 0 20px rgba(59, 130, 246, 0.4)",
                 }}
               >
                 {/* Glow effect on hover */}
-                <motion.div 
+                <motion.div
                   className="absolute inset-0 bg-gradient-to-br from-transparent via-transparent to-blue-500 opacity-0"
                   whileHover={{ opacity: 0.2 }}
                 />
                 
                 {/* Tech icon */}
-                <motion.div 
+                <motion.div
                   className={`text-5xl ${skill.color}`}
-                  whileHover={{ 
+                  whileHover={{
                     rotate: [0, -5, 5, -5, 0],
-                    transition: { duration: 0.5 } 
+                    transition: { duration: 0.5 },
                   }}
                 >
                   {skill.icon}
                 </motion.div>
-                
+
                 {/* Tech name */}
                 <p className="mt-3 text-lg font-semibold">{skill.name}</p>
               </motion.div>
