@@ -5,11 +5,19 @@ import { useEffect, useState } from "react";
 
 const projects = [
   {
+    title: "Yanta Municipality Website",
+    description: "A fullstack Next.js website for Yanta Municipality in Lebanon, featuring a activities, announcements, finances, municipality member, community groups, and more.",
+    link: "https://www.yanta-leb.com",
+    icon: "🇱🇧",
+    color: "from-blue-600 to-purple-600",
+    tech: ["Next.js, React, Typescript, Tailwinds CSS, Supabase (PostgreSQL)"]
+  },
+  {
     title: "Fair Counterfactual Explanations with RL",
     description: "An RL framework that optimizes counterfactual explanations while ensuring fairness, and proximity.",
     link: "https://github.com/ObaidaAmmar/IGH-Fair-CFE",
     icon: "🤖",
-    color: "from-blue-600 to-purple-600",
+    color: "from-red-600 to-blue-600",
     tech: ["Reinforcement Learning", "XAI", "Python"]
   },
   {
@@ -89,7 +97,7 @@ export default function Projects() {
         )}
 
         {/* Projects grid */}
-        <div className="grid md:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-3 gap-20">
           {projects.map((project, index) => (
             mounted ? (
               <Parallax
